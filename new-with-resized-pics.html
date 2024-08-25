@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Static Webpage</title>
+    <!-- Google Fonts Link -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand:wght@300;400;700&display=swap">
+    <style>
+        /* Body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); */
+            background:url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ec7d26b1-d557-47c1-a877-6050004d2fc2/dbb7hcs-1f9e8f0a-c4c7-4fc9-baf6-9e075ce86e30.jpg/v1/fill/w_1210,h_661,q_70,strp/cyberpunk_city_by_artursadlos_dbb7hcs-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA0OSIsInBhdGgiOiJcL2ZcL2VjN2QyNmIxLWQ1NTctNDdjMS1hODc3LTYwNTAwMDRkMmZjMlwvZGJiN2hjcy0xZjllOGYwYS1jNGM3LTRmYzktYmFmNi05ZTA3NWNlODZlMzAuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.GD3LU0BXLk6l52PMsWZ_qnZ_iGnMQ5RXm92XjTWjoDA');
+            /* background:url('https://image.cdn2.seaart.ai/2023-08-31/15879714120975365/634459bcee5980c0afe7dd447f6e04f27f64c277_high.webp'); */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Patrick Hand', sans-serif;
+            color: #6135c1;
+            /* z-index: 1; */
+        }
+
+        /* Button styling */
+        .click-button {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: #bdb8b8;
+            /* background-color: #6200ea; */
+            background: linear-gradient(135deg, #7734d5, #233182, #bc35c1);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+            font-family: 'Patrick Hand', sans-serif;
+            font-weight: 500;
+            text-shadow: 2px 2px 2px #0f0303;
+        }
+
+        /* Button hover effect */
+        .click-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        /* Button active effect */
+        .click-button:active {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #catFact {
+            border: 2px solid #4CAF50; 
+            background-color: #0f0303;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            object-fit: cover; 
+            font-size: 1.5em;
+            color: #714179;
+            text-align: center;
+            width: 60%; 
+        }
+
+        /* Image container styling */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Image styling */
+        .image-container img {
+            padding: 5px;
+            background-color: #0f0303;
+            width: 250px; /* Set width for consistent size */
+            height: 150px; /* Set height for consistent size */
+            object-fit: cover; /* Ensures the image fits within the dimensions without distortion */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-container img:hover {
+            opacity: 0.8;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            color: #aacf22;
+            background-color: #2d2d2d7e;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .hero p {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 600px) {
+            .click-button {
+                width: 100%;
+                font-size: 16px;
+            }
+
+            .image-container {
+                flex-direction: column;
+            }
+
+            .image-container img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* nav {
+            width: 100%;
+            background-color: #3f51b5;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff9a9e;
+        } */
+    </style>
+</head>
+<section class="hero">
+    <h1>Welcome to the car registrator!</h1>
+    <p>Never worry about being fucking towed again.</p>
+</section>
+<!-- <nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav> -->
+<body>
+    <!-- Button -->
+    <button class="click-button">Click me!</button>
+    <div id="catFact"></div>
+
+    <!-- Image Container -->
+    <div class="image-container">
+        <!-- First Image -->
+        <img src="https://register-my-car.s3.amazonaws.com/car.jpeg" alt="Car Image">
+        <!-- Second Image -->
+        <img src="https://register-my-car.s3.amazonaws.com/city.jpg" alt="City Image">
+    </div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+            const button = document.getElementsByClassName('click-button');
+            if (button) {
+                document.getElementsByClassName('click-button')[0].addEventListener('click', async function() {
+                    try {
+                        const response = await fetch('https://catfact.ninja/fact', {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            // body: JSON.stringify({ key: 'value' }) // Add any data you need to send
+                        });
+    
+                        if (response.ok) {
+                            console.log('API triggered successfully!');
+                        } else {
+                            console.error('Unsuccessful in triggering API! Response:', response.statusText);
+                        }
+
+                        const catFactDiv = document.getElementById('catFact');
+                        catFactDiv.textContent = 'Fetching a cat fact for you... :)'; // indicate loading
+                        const parsed_response = response.json().then(data => catFactDiv.textContent = data.fact);
+                    } catch (error) {
+                        console.error('Error triggering API! Error:', error);
+                    }
+                });
+            } else {
+                console.log('Something aint right still...')
+            }
+        });
+    </script>
+</body>
+</html>
