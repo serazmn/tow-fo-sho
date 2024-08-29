@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigger Lambda</title>
+</head>
+<body>
+    <h2>Please click to initiate magic!</h2>
+    <button id="trigger-button">Trigger Lambda</button>
+    <img src="car.jpeg" alt="Me" style="width:378px;height:504px;">
+    <img src="city.jpg" alt="Me" style="width:378px;height:504px;">
+    <script>
+        document.getElementById('trigger-button').addEventListener('click', async function() {
+            try {
+                const response = await fetch('https://your-api-gateway-endpoint/trigger', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ key: 'value' }) // Add any data you need to send
+                });
+
+                if (response.ok) {
+                    console.log('Lambda triggered successfully!');
+                } else {
+                    console.error('Error triggering Lambda:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error triggering Lambda:', error);
+            }
+        });
+    </script>
+</body>
+</html>
