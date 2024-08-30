@@ -248,7 +248,6 @@
                     }
 
                     try {
-                        // const response = null 
                         const awsResponseDiv = document.getElementById('awsResponse');
 
                         fetch('https://1u7sv046n1.execute-api.us-east-1.amazonaws.com/test/helloworld?greeter=Kmeowmeow_peepees_pewpies_poppies_bobbles_meowmeow_meowwww', {
@@ -257,18 +256,16 @@
                                 'Content-Type': 'application/json',
                                 'Accept': 'application/json',
                             },
-                        }).then((response) => response.text())
-                        .then((body) => {
+                        }).then(response => {
+                            // Check if the request was successful or not 
+                            if (!response.ok) {
+                                console.error('Unsuccessful in triggering AWS API! Response:', response.statusText);
+                            }
+                            console.log('AWS API triggered successfully!');
+                            return response.text();
+                        }).then(body => {
                             awsResponseDiv.textContent = body
                         });
-
-                        console.log('AWS API triggered successfully!');
-                        
-                        // if (response.ok) {
-                        //     console.log('AWS API triggered successfully!');
-                        // } else {
-                        //     console.error('Unsuccessful in triggering AWS API! Response:', response.statusText);
-                        // }
                     } catch (error) {
                         console.error('Error triggering AWS API! Error:', error);
                     }
